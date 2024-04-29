@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 
 //import { mapStateToProps } from '../../store/mapStateToProps';
-import { SET_CONNECTION_FILTER } from '../../../store/actions/setConnectionFilter';
-import { SET_FILTERED_TICKETS } from '../../../store/actions/setFilteredTickets';
-import { useAppDispatch, useAppSelector } from '../hooks';
+import { setConnections } from '../../../store/dispatch';
+import { FilterItem } from './FilterItem';
+import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 import './FilterList.css';
-import Checkbox_on from '../src/Checkbox on.svg';
+import Checkbox_on from '../src/Checkbox_on.svg';
 import Checkbox from '../src/Checkbox.svg';
 
 export const FilterList: FC = () => {
@@ -18,51 +18,29 @@ export const FilterList: FC = () => {
   const dispatch = useAppDispatch();
 
   const handlerAll = () => {
-    dispatch(SET_CONNECTION_FILTER(0, all));
-    dispatch(SET_FILTERED_TICKETS());
+    dispatch(setConnections(0));
   };
   const handlerNo = () => {
-    dispatch(SET_CONNECTION_FILTER(1, noCon));
-    dispatch(SET_FILTERED_TICKETS());
+    dispatch(setConnections(1));
   };
   const handlerOne = () => {
-    dispatch(SET_CONNECTION_FILTER(2, ICon));
-    dispatch(SET_FILTERED_TICKETS());
+    dispatch(setConnections(2));
   };
   const handlerTwo = () => {
-    dispatch(SET_CONNECTION_FILTER(3, IICon));
-    dispatch(SET_FILTERED_TICKETS());
+    dispatch(setConnections(3));
   };
   const handlerThree = () => {
-    dispatch(SET_CONNECTION_FILTER(4, IIICon));
-    dispatch(SET_FILTERED_TICKETS());
+    dispatch(setConnections(4));
   };
   return (
     <div className="aviasales__filterList">
       <form>
         <h2>Количество пересадок</h2>
-        <label>
-          <img src={all ? Checkbox_on : Checkbox}></img>
-          <input type="checkBox" onClick={handlerAll} />
-          Все
-        </label>
-        <label>
-          <img src={noCon ? Checkbox_on : Checkbox}></img>
-          <input type="checkBox" onClick={handlerNo} />
-          Без пересадок
-        </label>
-        <label>
-          <img src={ICon ? Checkbox_on : Checkbox}></img>
-          <input type="checkBox" onClick={handlerOne} />1 Пересадка
-        </label>
-        <label>
-          <img src={IICon ? Checkbox_on : Checkbox}></img>
-          <input type="checkBox" onClick={handlerTwo} />2 пересадки
-        </label>
-        <label>
-          <img src={IIICon ? Checkbox_on : Checkbox}></img>
-          <input type="checkBox" onClick={handlerThree} />3 пересадки
-        </label>
+        <FilterItem check={all} handle={handlerAll} img_on={Checkbox_on} img_off={Checkbox} description='Все' ></FilterItem>
+        <FilterItem check={noCon} handle={handlerNo} img_on={Checkbox_on} img_off={Checkbox} description='Без пересадок' ></FilterItem>
+        <FilterItem check={ICon} handle={handlerOne} img_on={Checkbox_on} img_off={Checkbox} description='1 пересадка' ></FilterItem>
+        <FilterItem check={IICon} handle={handlerTwo} img_on={Checkbox_on} img_off={Checkbox} description='2 пересадки' ></FilterItem>
+        <FilterItem check={IIICon} handle={handlerThree} img_on={Checkbox_on} img_off={Checkbox} description='3 Пересадка' ></FilterItem>       
       </form>
     </div>
   );

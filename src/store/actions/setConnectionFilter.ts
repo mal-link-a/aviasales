@@ -1,7 +1,11 @@
-export function SET_CONNECTION_FILTER(data: number, flag: boolean) {
+import { createAction } from '@reduxjs/toolkit'
+
+const SET_CONNECTION_FILTER ='SET_CONNECTION_FILTER'
+
+export const setConnectionsFilter = createAction(SET_CONNECTION_FILTER, function prepare(data: number) {
   return {
-    type: 'SET_CONNECTION_FILTER',
-    id: data,
-    isTrue: flag,
-  };
-}
+    payload: {
+      data,   
+    },
+  }
+})

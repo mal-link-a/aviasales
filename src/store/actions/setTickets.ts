@@ -1,8 +1,14 @@
 import { Ticket } from '../../features/aviasales/types/Ticket';
+import { createAction } from '@reduxjs/toolkit'
 
-export function SET_TICKETS(tickets: Ticket[]) {
+const SET_TICKETS = 'SET_TICKETS'
+
+export const setTickets = createAction(SET_TICKETS, function prepare(tickets: Ticket[]) {
+  console.log('SET_TICKETS')
+  console.log('tickets')
   return {
-    type: 'SET_TICKETS',
-    data: tickets,
-  };
-}
+    payload: {
+      tickets,      
+    },
+  }
+})

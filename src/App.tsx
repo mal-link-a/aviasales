@@ -13,9 +13,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <div className="App">
-          <main className="App-header">
+          <header className="App-header">
             <Aviasales />
-          </main>
+          </header>
         </div>
       </Provider>
     </QueryClientProvider>

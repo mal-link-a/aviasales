@@ -1,5 +1,3 @@
-import { getSearchID } from './getSearchID';
-
 export async function getTicketList(searchID) {
   const url = `https://aviasales-test-api.kata.academy/tickets?searchId=${searchID}`;
 
@@ -25,9 +23,5 @@ export async function getTicketList(searchID) {
   const data = await getIteration([]);
   console.log('data =');
   console.log(data);
-  if (data[0] === undefined && data.length === 1) {
-    const newID = await getSearchID();
-    return getTicketList(newID);
-  }
   return data;
 }

@@ -2,11 +2,9 @@ import React, { FC } from 'react';
 
 import './ButtonList.css';
 import { ListFilterType } from '../types';
-import { useAppDispatch, useAppSelector } from '../hooks';
-import { SET_ADVANTAGES_FILTER } from '../../../store/actions/setAdvantagesFilter';
-import { SET_TICKETS } from '../../../store/actions/setTickets';
-import { SET_FILTERED_TICKETS } from '../../../store/actions/setFilteredTickets';
-import { getCheapest, getFastest, getOptimal } from '../../../store/sortTickets';
+import { useAppDispatch, useAppSelector } from '../hooks/hooks';
+//~~~
+import { setAdvantages } from '../../../store/dispatch';
 
 export const ButtonList: FC = () => {
   const dispatch = useAppDispatch();
@@ -14,31 +12,25 @@ export const ButtonList: FC = () => {
   const filterAdvantages = useAppSelector((state) => state.filterAdvantages);
   const tickets = useAppSelector((state) => state.tickets);
   function setCheapest() {
-    dispatch(SET_ADVANTAGES_FILTER(ListFilterType.Cheapest));
-    dispatch(SET_TICKETS(getCheapest([...tickets])));
-    dispatch(SET_FILTERED_TICKETS());
+    dispatch(setAdvantages(ListFilterType.Cheapest, [...tickets]));    
   }
   function setFastest() {
-    dispatch(SET_ADVANTAGES_FILTER(ListFilterType.Fastest));
-    dispatch(SET_TICKETS(getFastest([...tickets])));
-    dispatch(SET_FILTERED_TICKETS());
+    dispatch(setAdvantages(ListFilterType.Fastest, [...tickets]));    
   }
   function setOptimal() {
-    dispatch(SET_ADVANTAGES_FILTER(ListFilterType.Optimal));
-    dispatch(SET_TICKETS(getOptimal([...tickets])));
-    dispatch(SET_FILTERED_TICKETS());
+    dispatch(setAdvantages(ListFilterType.Optimal, [...tickets]));
   }
 
   return (
     <>
       <div className="asButtons">
-        <button className={filterAdvantages === ListFilterType.Cheapest ? 'asButtons__btn_active' : 'asButtons__btn'} onClick={setCheapest}>
+        <button className={`asButtons__btn ${filterAdvantages === ListFilterType.Cheapest ? 'asButtons__btn_active' : ''}`} onClick={setCheapest}>
           <span>Самый дешевый</span>
         </button>
-        <button className={filterAdvantages === ListFilterType.Fastest ? 'asButtons__btn_active' : 'asButtons__btn'} onClick={setFastest}>
+        <button className={`asButtons__btn ${filterAdvantages === ListFilterType.Fastest ? 'asButtons__btn_active' : ''}`} onClick={setFastest}>
           <span>Самый быстрый</span>
         </button>
-        <button className={filterAdvantages === ListFilterType.Optimal ? 'asButtons__btn_active' : 'asButtons__btn'} onClick={setOptimal}>
+        <button className={`asButtons__btn ${filterAdvantages === ListFilterType.Optimal ? 'asButtons__btn_active' : ''}`} onClick={setOptimal}>
           <span>Оптимальный</span>
         </button>
       </div>

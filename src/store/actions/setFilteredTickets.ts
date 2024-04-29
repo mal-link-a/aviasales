@@ -1,6 +1,5 @@
-//Экшен создания массива отфильтрованных билетов по пересадкам
-export function SET_FILTERED_TICKETS() {
-  return {
-    type: 'SET_FILTERED_TICKETS',
-  };
-}
+import { createAction } from '@reduxjs/toolkit'
+
+const SET_FILTERED_TICKETS = 'SET_FILTERED_TICKETS'
+
+export const setFilteredTickets = createAction(SET_FILTERED_TICKETS);
