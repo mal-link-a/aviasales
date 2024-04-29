@@ -1,0 +1,18 @@
+.asTickets__ticket__dataPart {
+    display: flex;
+    gap: 3px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  
+  .asTickets__ticket__dataPart span {
+    color: #000000;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .asTickets__ticket__dataPart .asTickets__ticket__dataPart_up {
+    color: #a0b0b9;
+    font-size: 12px;
+    font-weight: 400;
+  }

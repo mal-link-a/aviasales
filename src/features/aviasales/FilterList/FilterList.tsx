@@ -4,11 +4,16 @@ import React, { FC } from 'react';
 import { setConnections } from '../../../store/dispatch';
 import { FilterItem } from './FilterItem';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
-import './FilterList.css';
+//import './FilterList.css';
 import Checkbox_on from '../src/Checkbox_on.svg';
 import Checkbox from '../src/Checkbox.svg';
+import styles from './FilterList.module.css';
 
-export const FilterList: FC = () => {
+interface FilterListProps {
+  propClass?: string;
+}
+
+export const FilterList: FC<FilterListProps> = ({ propClass = ''}) => {
   const all = useAppSelector((state) => state.filterAll);
   const noCon = useAppSelector((state) => state.filterNoConnection);
   const ICon = useAppSelector((state) => state.filter1Connection);
@@ -33,7 +38,7 @@ export const FilterList: FC = () => {
     dispatch(setConnections(4));
   };
   return (
-    <div className="aviasales__filterList">
+    <div className={`${styles.asFilter} ${propClass}`}>
       <form>
         <h2>Количество пересадок</h2>
         <FilterItem check={all} handle={handlerAll} img_on={Checkbox_on} img_off={Checkbox} description='Все' ></FilterItem>

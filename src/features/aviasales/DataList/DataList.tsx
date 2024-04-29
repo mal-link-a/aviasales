@@ -2,11 +2,16 @@ import React, { FC } from 'react';
 
 import { showMoreTickets } from '../../../store/actions/showMoreTickets';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
-import { DataItem } from './DataItem';
-import './DataList.css';
+import { DataItem } from './DataItem/DataItem';
+//import './DataList.css';
 import { Ticket } from '../types/Ticket';
+import styles from './DataList.module.css';
 
-export const DataList: FC<Record<string, never>> = () => {
+interface DataListProps {
+  propClass?: string;
+}
+
+export const DataList: FC<DataListProps> = ({propClass = ''}) => {
   const tickets = useAppSelector((state) => state.filteredTickets);
   const showMode = useAppSelector((state) => state.showMode);
 
@@ -32,7 +37,7 @@ export const DataList: FC<Record<string, never>> = () => {
       return (
         <>
           {getTickets()}
-          <button onClick={handleShowMore} className="asTickets__btn">
+          <button onClick={handleShowMore} className={styles.asTickets__btn}>
             <span>Показать ещё 5 билетов!</span>
           </button>
         </>
@@ -51,5 +56,5 @@ export const DataList: FC<Record<string, never>> = () => {
     );
   }
 
-  return <div className="asTickets aviasales__dataList">{showData()}</div>;
+  return <div className={`${styles.asTickets} ${propClass}`}>{showData()}</div>;
 };

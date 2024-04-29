@@ -11,9 +11,13 @@ import { useAppDispatch } from './hooks/hooks';
 import { Ticket } from './types/Ticket';
 import { getFilteredTickets } from './functions/getFilteredTickets';
 
-import './Aviasales.css';
+import styles from './Aviasales.module.css';
+
+//import './Aviasales.css';
 
 export const Aviasales: FC = () => {
+  console.log('styles');
+  console.log(styles);
   const dispatch = useAppDispatch();
 
   //Инициируем получение стартовой информации
@@ -26,13 +30,13 @@ export const Aviasales: FC = () => {
 
   return (
     <React.StrictMode>
-      <div className="aviasales">
-        <div className="aviasales__logo">
+      <div className={styles.aviasales}>
+        <div className={styles.aviasales__logo}>
           <img src={Logo} alt="" />
         </div>
-        <FilterList /> {/*className="aviasales__filterList" */}
-        <ButtonList /> {/*className="aviasales__buttonList" */}
-        <DataList /> {/*className="aviasales__dataList" */}
+        <FilterList propClass={styles.aviasales__filterList}/> {/*className="aviasales__filterList" */}
+        <ButtonList propClass={styles.aviasales__buttonList}/> {/*className="aviasales__buttonList" */}
+        <DataList propClass={styles.aviasales__dataList}/> {/*className="aviasales__dataList" */}
       </div>
     </React.StrictMode>
   );
