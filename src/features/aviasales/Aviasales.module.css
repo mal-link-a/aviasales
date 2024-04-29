@@ -1,0 +1,24 @@
+/* Aviasales.css */
+.aviasales {
+  display: grid;
+  grid-template-areas:
+    'asLogo asLogo'
+    'asFilter asButtons'
+    'asFilter asData'
+    '. asData';
+  grid-template-rows: 120px 66px 250px 1fr;
+  grid-template-columns: 250px 500px;
+}
+.aviasales__logo {
+  grid-area: asLogo;
+}
+.aviasales__filterList {
+  grid-area: asFilter;
+}
+.aviasales__buttonList {
+  grid-area: asButtons;
+}
+
+.aviasales__dataList {
+  grid-area: asData;
+}
