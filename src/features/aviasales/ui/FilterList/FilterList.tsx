@@ -4,6 +4,7 @@ import { setConnections } from '../../../../lib/helpers/dispatch';
 import { FilterItem } from './FilterItem';
 import { ConnectionFilter } from '../../types';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+import { filterListSelector } from '../../../../store/selectors/filterListSelector';
 import Checkbox_on from '../../../../assets/Checkbox_on.svg';
 import Checkbox from '../../../../assets/Checkbox.svg';
 import styles from './FilterList.module.css';
@@ -13,11 +14,9 @@ interface FilterListProps {
 }
 
 export const FilterList: FC<FilterListProps> = ({ propClass = ''}) => {
-  const all = useAppSelector((state) => state.filterAll);
-  const noCon = useAppSelector((state) => state.filterNoConnection);
-  const ICon = useAppSelector((state) => state.filter1Connection);
-  const IICon = useAppSelector((state) => state.filter2Connection);
-  const IIICon = useAppSelector((state) => state.filter3Connection);
+
+  const { all, noCon, ICon, IICon, IIICon } = useAppSelector((state) => filterListSelector(state));
+
 
   const dispatch = useAppDispatch();
 
