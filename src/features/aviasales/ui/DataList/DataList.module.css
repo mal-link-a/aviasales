@@ -1,0 +1,24 @@
+.asTickets {
+  margin-bottom: 50px;
+}
+
+.asTickets__btn {
+  cursor: pointer;
+  border: 1px solid #91c9ff;
+  outline: none;
+  transition: 0.5s ease-in-out;
+  background: rgba(33, 150, 243, 1);
+  height: 50px;
+  width: 100%;
+}
+
+.asTickets__btn span {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 1px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+
