@@ -3,7 +3,6 @@ import React, { FC } from 'react';
 import { showMoreTickets } from '../../../../store/actions/showMoreTickets';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
 import { DataItem } from './DataItem/DataItem';
-//import './DataList.css';
 import { Ticket } from '../../types/Ticket';
 import styles from './DataList.module.css';
 

@@ -1,6 +1,5 @@
 import { ListFilterType, ConnectionFilter } from '../features/aviasales/types';
 import { createReducer } from '@reduxjs/toolkit'
-
 import { filterByConnections } from '../lib/helpers/filterByConnections';
 
 const initialState = {

@@ -1,11 +1,9 @@
 import React, { FC } from 'react';
 
-//import { mapStateToProps } from '../../store/mapStateToProps';
 import { setConnections } from '../../../../lib/helpers/dispatch';
 import { FilterItem } from './FilterItem';
 import { ConnectionFilter } from '../../types';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
-//import './FilterList.css';
 import Checkbox_on from '../../../../assets/Checkbox_on.svg';
 import Checkbox from '../../../../assets/Checkbox.svg';
 import styles from './FilterList.module.css';

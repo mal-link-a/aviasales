@@ -11,7 +11,7 @@ export const DataSegment: FC<DataSegmentProps> = ({ item } ) => {
         const startTime = item.date.slice(11, 16);
         let endHours: number | string = Number(item.date.slice(11, 13));
         let endMinutes: number | string = Number(item.date.slice(14, 16));
-  
+        
         endMinutes = endMinutes + (item.duration % 60);
         if (endMinutes >= 60) {
           endMinutes = endMinutes - 60;
